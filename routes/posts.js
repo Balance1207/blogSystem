@@ -1,21 +1,20 @@
 const express = require('express')
 const router = express.Router()
-const checkLogin = require('../middlewares/check').checkLogin()
+
+const checkLogin = require('../middlewares/check').checkLogin
 
 // GET /posts 所有用户或者特定用户的文章页
-// eg: GET /posts?author=xxx
+//   eg: GET /posts?author=xxx
 router.get('/', function (req, res, next) {
     res.send('主页')
 })
 
 // GET /posts/create 发表文章页
-// 调用checkLogin判断用户是否登录
 router.get('/create', checkLogin, function (req, res, next) {
     res.send('发表文章页')
 })
 
 // POST /posts/create 发表一篇文章
-// 调用checkLogin判断用户是否登录
 router.post('/create', checkLogin, function (req, res, next) {
     res.send('发表文章')
 })
@@ -41,4 +40,3 @@ router.get('/:postId/remove', checkLogin, function (req, res, next) {
 })
 
 module.exports = router
-

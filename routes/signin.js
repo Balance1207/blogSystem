@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const checkNotLogin = require('../middlewares/check').checkNotLogin()
+
+const checkNotLogin = require('../middlewares/check').checkNotLogin
 
 // GET /signin 登录页
 router.get('/', checkNotLogin, function (req, res, next) {
